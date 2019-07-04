@@ -1,0 +1,71 @@
+{% extends 'social_site/base.html' %}
+{% block title %}{{user.n_name}}{% endblock %}
+{% block content %}
+            <div class="row" id="name">
+                <div class="col-md float-left">
+                <h1 class="display-1">
+                    {{user.n_name}}
+                </h1>
+                </div>
+                {% if brillentraeger %}
+                <div class="col-md-4">
+                <span class="badge badge-primary" style="margin-top: 15%">Brille</span>
+                </div>
+                {% endif %}
+            </div> 
+            <div class="row">
+            <div class="card user-card" style="width: 18rem;">    
+                <div class="card-body">
+                    <h5 class="card-title">Name</h5>
+                    <p class="card-text">{{user.anzeigename}}</p>
+                </div>
+            </div>
+            <div class="card user-card" style="width: 18rem;">    
+                <div class="card-body">
+                    <h5 class="card-title">Einkommen</h5>
+                    <p class="card-text">{{user.einkommen}}</p>
+                </div>
+            </div>
+            <div class="card user-card" style="width: 18rem;">    
+                    <div class="card-body">
+                        <h5 class="card-title">Id</h5>
+                        <p class="card-text">{{user.id}}</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="width:100%">
+            <div class="row relations">
+            <div class="col-md-3">
+                <ul>
+                    <h3>Fans: {{fans | length}}</h3>
+                    {% for fan in fans %}
+                    <li><a href="/user/{{fan.id}}">{{fan.n_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <h3>Dates: {{dates | length}}</h3>
+                    {% for fan in dates %}
+                    <li><a href="/user/{{fan.id}}">{{fan.n_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <h3>Ehen: {{ehen | length}}</h3>
+                    {% for fan in ehen %}
+                    <li><a href="/user/{{fan.id}}">{{fan.n_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-3">
+                    <ul>
+                        <h3>Hobbies: {{hobbies | length}}</h3>
+                        {% for hobby in hobbies %}
+                        <li>{{hobby.hobbyname.h_name}}</li>
+                        {% endfor %}
+                    </ul>
+            </div>
+            </div>
+{% endblock %}

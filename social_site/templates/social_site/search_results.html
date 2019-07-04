@@ -1,0 +1,38 @@
+{% extends 'social_site/base.html' %}
+{% block title %}Minifacebook{% endblock %}
+{% block content %}
+{% if res_list %}
+        <ul>
+            {% for user in res_list %}
+            <li>
+                <div class="card result-list-card" style="width:90%">
+                    <div class="card-body">
+                        <h5 class="card-text">
+                            <a href="/user/{{user.id}}">{{user.n_name}}</a>
+                        </h5>
+                        <p class="card-text">Name: {{user.anzeigename}}, Einkommen: {{user.einkommen}}</p>
+                    </div>  
+                </div>
+            </li>
+            {% endfor %}
+            <nav aria-label="Page navigation example">
+                {% if page > 0%}
+                <ul class="pagination">
+                    {% if page != 1%}
+                    <li class="page-item"><a class="page-link" href="/search/{{page|add:'-1'}}?str={{search_str}}">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="/search/{{page|add:'-1'}}?str={{search_str}}">{{page|add:'-1'}}</a></li>
+                    {% endif %}
+                    <li class="page-item active"><a class="page-link" href="#">{{page}}</a></li>
+                    <li class="page-item"><a class="page-link" href="/search/{{page|add:'1'}}?str={{search_str}}">{{page|add:'1'}}</a></li>
+                    {% if page == 1%}
+                    <li class="page-item"><a class="page-link" href="/search/{{page|add:'2'}}?str={{search_str}}">{{page|add:'2'}}</a></li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="/search/{{page|add:'1'}}?str={{search_str}}">Next</a></li>
+                </ul>
+                {% endif %}
+            </nav>
+        </ul>
+        {% else %}
+        <h2>No results found!</h2>
+{% endif %}
+{% endblock %}

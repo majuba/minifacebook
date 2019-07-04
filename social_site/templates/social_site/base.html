@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'social_site/index.css' %}">
+    <link rel="stylesheet" href="{% static 'social_site/bootstrap.min.css' %}"> 
+</head>
+<body>
+    <div class="header row">
+           <div class="col-md-8 title"><h2><a href="/">Minifacebook</a></h2> </div>
+           <div class="col-md-4">
+               <form class="form-inline" action="/search/1" method="get">
+                   <div class="form-group">
+                   <label for="str" style="margin-right:1em">search: </label>
+                   <input class="form-control" type="text" name="str" id="str" placeholder="Enter name">
+                   <input class="btn btn-primary" type="submit" value="OK">
+                   </div>
+               </form>
+           </div>
+       </div>
+    <div class="container">
+    
+    <div class="main-content">
+            {% block content %}{% endblock %}
+    </div>
+    </div>
+</body>
+</html>

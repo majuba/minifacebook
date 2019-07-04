@@ -1,0 +1,39 @@
+li {
+    list-style-type: none;
+}
+
+html, body {margin: 0; height: 100%; overflow-x: hidden}
+
+
+.main-content {
+    margin: 1em;
+}
+
+.title a {
+    text-decoration: none;
+    color: white;
+}
+
+.title a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    padding: .5em 0 .1em 1em;
+    padding-left: 1em;
+    background-color: cadetblue;
+    color: white;
+}
+
+.result-list-card {
+    margin: 1em 0 1em 0;
+}
+
+.user-card {
+    margin: 0 1em 0 1em;
+}
+
+.relations {
+    margin-top: 1em;
+}
